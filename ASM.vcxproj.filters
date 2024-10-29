@@ -20,7 +20,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Sources\Thi\MaxMin3So.asm">
+    <MASM Include="Sources\Thi\MaxMinNSo.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
