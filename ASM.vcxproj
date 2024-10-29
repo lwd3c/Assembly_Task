@@ -141,7 +141,10 @@
     <None Include="..\..\..\..\..\Irvine\Irvine32.inc" />
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Sources\Thi\MaxMinNSo.asm" />
+    <ClCompile Include="Sources\Thi\TichN.asm" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="Sources\Thi\TongN.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,7 +20,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Sources\Thi\MaxMinNSo.asm">
+    <ClCompile Include="Sources\Thi\TichN.asm">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="Sources\Thi\TongN.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

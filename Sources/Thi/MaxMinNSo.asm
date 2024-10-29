@@ -1,21 +1,29 @@
 include Irvine32.inc
 
-; Tim max, min 3 so cho truoc
+; Tim max, min n so cho truoc
 
 .data
-	msg BYTE "Nhap so thu ", 0
-	msg1 BYTE "Max: ", 0
-	msg2 BYTE "Min: ", 0
-	num DWORD 3 DUP(?)
-	i DWORD 0
+	msg BYTE "Nhap n: ", 0
+	msg1 BYTE "Nhap so thu ", 0
+	msg2 BYTE "Max: ", 0
+	msg3 BYTE "Min: ", 0
+	num DWORD 256 DUP(?)
+	i DWORD 1
+	n DWORD ?
 
 .code
 	main proc
-	; nhap 3 so ban dau
-		mov ecx, 3
+	; nhap n
+		lea edx, msg
+		call writestring
+		call readdec
+		mov n, eax
+
+	; nhap n so ban dau
+		mov ecx, n
 		lea esi, num
 	L1:
-		lea edx, msg
+		lea edx, msg1
 		call writestring
 		mov eax, i
 		call writedec
@@ -34,7 +42,8 @@ include Irvine32.inc
 		mov ebx, [esi]			; max
 		mov ecx, [esi]			; min
 		add esi, TYPE num		; tang len so thu 2
-		mov edx, 2
+		mov edx, n
+		dec edx
 	L2:	
 		cmp edx, 0
 		jz Print
@@ -55,13 +64,13 @@ include Irvine32.inc
 		jmp L2
 	
 	Print:
-		lea edx, msg1
+		lea edx, msg2
 		call writestring
 		mov eax, ebx
 		call writedec
 		call crlf
 
-		lea edx, msg2
+		lea edx, msg3
 		call writestring
 		mov eax, ecx
 		call writedec
