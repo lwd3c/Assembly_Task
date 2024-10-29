@@ -20,7 +20,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Sources\Thi\Switch.asm">
+    <MASM Include="Sources\Thi\ToHop.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
