@@ -1,6 +1,6 @@
 include Irvine32.inc
 
-; tinh hoan vi cua k phan tu
+; tinh hoan vi cua k phan tu: P(k) = k!
 
 .data
 	msg BYTE "Nhap k: ", 0
