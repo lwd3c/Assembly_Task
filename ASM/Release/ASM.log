@@ -1,0 +1,3 @@
+﻿  Assembling Sources\29082024\Ex3.asm...
+Sources\29082024\Ex3.asm(1): fatal error A1000: cannot open file : Irvine32.inc
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"ASM\Release\Ex3.obj" /W3 /errorReport:prompt  /TaSources\29082024\Ex3.asm" exited with code 1.
