@@ -1,11 +1,11 @@
 include Irvine32.inc
 
-; tinh to hop chap k cua n phan tu: C(n, k) = n! / ( k! * (n - k)! )
+; tinh chinh hop chap k cua n phan tu: A(n, k) = n! / (n - k)!
 
 .data
 	msg BYTE "Nhap n: ", 0
 	msg2 BYTE "Nhap k: ", 0
-	msg3 BYTE "C(n, k) = ", 0
+	msg3 BYTE "A(n, k) = ", 0
 	msg4 BYTE "Gia tri cua k phai nho hon hoac bang n !", 0
 	msg5 BYTE "Gia tri cua n phai lon hon hoac bang 0 !", 0
 	msg6 BYTE "Gia tri cua k phai lon hon hoac bang 0 !", 0
@@ -38,20 +38,16 @@ include Irvine32.inc
 		mov eax, n		; n!
 		call GiaiThua
 		mov n, eax
-		mov eax, k		; k!
-		call GiaiThua
-		mov k, eax
 		mov eax, i		; i! = (n - k)!
 		call GiaiThua
 		mov i, eax
 	
-	; tinh to hop
+	; tinh chinh hop
 		mov edi, n
-		mov esi, k
-		mov edx, i
-		call ToHop
+		mov esi, i
+		call ChinhHop		; n! / i!
 		jmp Print
-	
+
 	; bao loi n < 0
 	Error1:
 		lea edx, msg5
@@ -97,14 +93,10 @@ include Irvine32.inc
 		ret
 	GiaiThua endp
 
-	ToHop proc
-		mov eax, esi		
-		mov ebx, edx
-		mul ebx			
-		mov ebx, eax		; ebx = k! * (n - k)!
-		mov eax, edi		; eax = n !
-		cdq
-		div ebx			; eax = n! / ( k! * (n - k)! )
+	ChinhHop proc
+		mov eax, edi		; n!	
+		mov ebx, esi		; i!
+		div ebx			; eax = n! / (n - k)!
 		ret
-	ToHop endp
+	ChinhHop endp
 end main
