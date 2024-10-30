@@ -20,10 +20,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Sources\Thi\ChinhHop.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
-    <MASM Include="Sources\Thi\HoanVi.asm">
+    <MASM Include="Sources\Thi\ChuoiCon.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
