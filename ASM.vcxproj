@@ -141,7 +141,7 @@
     <None Include="..\..\..\..\..\Irvine\Irvine32.inc" />
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Sources\Thi\ChuoiCon.asm" />
+    <MASM Include="Sources\Thi\23_WorkInParagraph.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
