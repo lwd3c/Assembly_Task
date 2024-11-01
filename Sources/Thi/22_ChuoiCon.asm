@@ -3,12 +3,15 @@ include Irvine32.inc
 ; tim kiem 1 chuoi con m ki tu trong xau n ki tu
 
 .data
-	msg BYTE "Nhap chuoi ban dau: ", 0
+	msg BYTE "Nhap chuoi ban dau (toi da 254 ki tu): ", 0
 	msg1 BYTE "Nhap chuoi con can tim: ", 0
 	msg3 BYTE "Tim thay chuoi con trong chuoi ban dau !", 0
 	msg4 BYTE "Khong tim thay chuoi con trong chuoi ban dau !", 0
-	string BYTE 200 DUP(?)
-	sub_string BYTE 200 DUP(?)		
+	msg5 BYTE "Kich thuoc chuoi vuot qua do dai cho phep ! Vui long nhap lai.", 0
+	msg6 BYTE "Kich thuoc chuoi con lon hon chuoi ban dau ! Vui long nhap lai.", 0
+	msg7 BYTE " Tai vi tri: ", 0
+	string BYTE 256 DUP(?)
+	sub_string BYTE 256 DUP(?)		
 	leng1 DWORD ?			; n
 	leng2 DWORD ?			; m
 
@@ -18,17 +21,21 @@ include Irvine32.inc
 		lea edx, msg
 		call writestring
 		lea edx, string
-		mov ecx, 200
+		mov ecx, 256
 		call readstring
 		mov leng1, eax
+		cmp eax, 254
+		jg Error
 
 	; nhap chuoi con
 		lea edx, msg1
 		call writestring
 		lea edx, sub_string
-		mov ecx, 200
+		mov ecx, 256
 		call readstring
 		mov leng2, eax
+		cmp eax, leng1
+		jg Error2
 
 	; goi ham searchString
 		lea edi, string
@@ -42,8 +49,24 @@ include Irvine32.inc
 	; Found
 		lea edx, msg3
 		call writeString
+		lea edx, msg7
+		call writeString
+		call writeDec
 		jmp Thoat
 
+	; Error
+	Error:
+		lea edx, msg5
+		call writestring
+		jmp Thoat
+	
+	; Error
+	Error2:
+		lea edx, msg6
+		call writestring
+		jmp Thoat
+
+	; Not Found
 	NotFound:
 		lea edx, msg4
 		call writeString
@@ -64,7 +87,7 @@ include Irvine32.inc
 	Next:
 		push eax				; luu vi tri hien tai
 		lea edi, string
-		add edi, eax			; vi tri hien tai
+		add edi, eax			; tro toi vi tri hien tai
 		lea esi, sub_string		; tro ve vi tri ban dau chuoi con
 		push ecx
 		mov ecx, leng2			; vong lap chuoi con: m
