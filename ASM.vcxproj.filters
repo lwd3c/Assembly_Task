@@ -20,7 +20,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Sources\Thi\22_ChuoiCon.asm">
+    <MASM Include="Sources\Thi\24_SoISBN-10.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
