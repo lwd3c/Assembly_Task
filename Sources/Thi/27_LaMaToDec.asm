@@ -1,6 +1,6 @@
 include Irvine32.inc
 
-; chuyen doi so he 10 sang so La Ma
+; chuyen doi so he La Ma sang so 10
 
 .data
 	array BYTE 256 DUP(?)
@@ -108,15 +108,15 @@ include Irvine32.inc
 		mov sum, eax
 	L3:
 		dec esi	
-		cmp esi, 0			; neu chay het mang thi in ket qua
+		cmp esi, 0					; neu chay het mang thi in ket qua
 		jl Ketqua
 
 		mov ebx, [edi + esi * 4]			; phan tu hien tai
 		mov edx, [edi + esi * 4 + 4]		; phan tu ke tiep
 
-		cmp ebx, edx		; so sanh 2 phan tu ke tiep, neu nho hon thi thuc hien phep tru
+		cmp ebx, edx					; so sanh 2 phan tu ke tiep, neu nho hon thi thuc hien phep tru
 		jl Subtract
-		add sum, ebx		; nguoc lai, thuc hien phep cong					
+		add sum, ebx					; nguoc lai, thuc hien phep cong					
 		jmp L3
 		
 	Subtract:
@@ -124,7 +124,7 @@ include Irvine32.inc
 		jmp L3
 
 	Ketqua:
-		mov eax, sum		; in ra ket qua
+		mov eax, sum					; in ra ket qua
 		call writedec
 
 		ret
