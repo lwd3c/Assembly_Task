@@ -49,7 +49,7 @@ include Irvine32.inc
 	    push esi                
 	    ConvertLoop:
 		   mov al, [esi]		
-		   cmp al, 0
+		   cmp al, 0			; thay the 00 0a bang 20
 		   je Remove
 		   cmp al, 32			; kiem tra ket thuc chuoi
 		   je EndConvert
