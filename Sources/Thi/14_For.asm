@@ -10,7 +10,7 @@ include Irvine32.inc
 	    mov ecx, 0                ; i = 0
 
 	for_start:
-	    cmp ecx, 10              
+	    cmp ecx, 100              
 	    jg for_end              
 
 	    lea edx, msg       

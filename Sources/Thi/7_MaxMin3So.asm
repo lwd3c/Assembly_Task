@@ -6,8 +6,8 @@ include Irvine32.inc
 	msg BYTE "Nhap so thu ", 0
 	msg1 BYTE "Max: ", 0
 	msg2 BYTE "Min: ", 0
-	num DWORD 3 DUP(?)
-	i DWORD 0
+	num SDWORD 3 DUP(?)
+	i DWORD 1
 
 .code
 	main proc
@@ -23,7 +23,7 @@ include Irvine32.inc
 		call writechar
 		mov al, ' '
 		call writechar
-		call readDec
+		call readInt
 		mov [esi], eax
 		add esi, TYPE num
 		inc i
@@ -38,19 +38,19 @@ include Irvine32.inc
 	L2:	
 		cmp edx, 0
 		jz Print
-		mov eax, [esi]
-		cmp eax, ebx			; so sanh min voi so thu 2, 3
-		jle NHOHON			; neu min nho hon so thu 2, 3
-		mov ebx, eax			; nguoc lai, so thu 2 = max
+		mov eax, [esi]			; luu phan tu thu tiep theo vao eax
+		cmp eax, ebx			; so sanh voi max 
+		jle NHOHON			; neu nho hon hoac bang max
+		mov ebx, eax			; neu lon hon max, gan max bang gia tri do 
 		jmp Next
 
 	NHOHON:
-		cmp eax, ecx
-		jge Next
-		mov ecx, eax			; so thu 2 = min
+		cmp eax, ecx			; so sanh voi min
+		jge Next				; neu lon hon hoac bang min, bo qua
+		mov ecx, eax			; neu nho hon min, gan min bang gia tri do
 	
 	Next:
-		add esi, TYPE num		; tang len so thu 3
+		add esi, TYPE num		; tang len so tiep theo
 		dec edx
 		jmp L2
 	
@@ -58,13 +58,13 @@ include Irvine32.inc
 		lea edx, msg1
 		call writestring
 		mov eax, ebx
-		call writedec
+		call writeInt
 		call crlf
 
 		lea edx, msg2
 		call writestring
 		mov eax, ecx
-		call writedec
+		call writeInt
 	
 	Thoat:
 		call crlf

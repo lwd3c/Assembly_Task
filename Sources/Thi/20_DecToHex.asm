@@ -16,6 +16,7 @@ include Irvine32.inc
 		call writestring
 		call readdec
 		mov Decnum, eax
+
 	; convert Dec to Hex
 		lea esi, Hexnum
 	Convert:
@@ -26,6 +27,7 @@ include Irvine32.inc
 		cdq
 		div ebx
 		mov Decnum, eax
+
 	; chuyen doi so tu 10-16 thanh A-F
 		cmp edx, 10
 		je caseA
@@ -74,6 +76,7 @@ include Irvine32.inc
 	Print:
 		lea edx, msg2
 		call writeString
+
 	; in tu cuoi mang len dau
 		mov eax, i
 		dec eax

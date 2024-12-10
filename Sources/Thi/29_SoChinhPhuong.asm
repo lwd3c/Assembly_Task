@@ -15,11 +15,11 @@ include Irvine32.inc
 		call writestring
 		call readdec
 		mov val, eax
-	
+		
 	; kiem tra so chinh phuong
 		mov ecx, 1
 	L1:
-		mov eax, ecx
+		mov eax, ecx				
 		mul eax
 		cmp eax, val
 		je LaSoChinhPhuong

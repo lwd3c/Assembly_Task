@@ -8,7 +8,7 @@ include Irvine32.inc
     msg3 BYTE "So k trong co so 10: ", 0
     msg4 BYTE "So nhap vao chua ki tu khong hop le!", 0
     base DWORD ?				; co so 
-    k_value BYTE 50 DUP(32)		; so ban dau
+    k_value BYTE 100 DUP(32)		; so ban dau
     d_value DWORD 0				; so he thap phan
 
 .code
@@ -23,7 +23,7 @@ include Irvine32.inc
 		lea edx, msg2
 		call WriteString
 		lea edx, k_value
-		mov ecx, 50
+		mov ecx, 100
 		call ReadString
 		
 	; chuyen doi ki tu ve so
@@ -116,6 +116,7 @@ include Irvine32.inc
 	    xor ecx, ecx         ; do dai chuoi
 	    xor ebx, ebx		; ket qua
 
+; tinh do dai so
 	FindLength:
 	    cmp byte ptr [esi + ecx], ' '		; kiem tra ket thuc chuoi
 	    je StartConvert
@@ -123,7 +124,7 @@ include Irvine32.inc
 	    jmp FindLength
 
 	StartConvert:
-	    dec ecx                ; vi tri so cuoi cung        
+	    dec ecx					; vi tri so cuoi cung        
 
 	ConvertLoop:
 	    movzx eax, byte ptr [esi]		; gia tri tai vi tri hien tai

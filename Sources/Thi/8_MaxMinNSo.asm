@@ -7,7 +7,7 @@ include Irvine32.inc
 	msg1 BYTE "Nhap so thu ", 0
 	msg2 BYTE "Max: ", 0
 	msg3 BYTE "Min: ", 0
-	num DWORD 256 DUP(?)
+	num SDWORD 256 DUP(?)
 	i DWORD 1
 	n DWORD ?
 
@@ -31,7 +31,7 @@ include Irvine32.inc
 		call writechar
 		mov al, ' '
 		call writechar
-		call readDec
+		call readInt
 		mov [esi], eax
 		add esi, TYPE num
 		inc i
@@ -42,8 +42,8 @@ include Irvine32.inc
 		mov ebx, [esi]			; max
 		mov ecx, [esi]			; min
 		add esi, TYPE num		; tang len so thu 2
-		mov edx, n
-		dec edx
+		mov edx, n			
+		dec edx				; so vong lap
 	L2:	
 		cmp edx, 0
 		jz Print
@@ -67,13 +67,13 @@ include Irvine32.inc
 		lea edx, msg2
 		call writestring
 		mov eax, ebx
-		call writedec
+		call writeInt
 		call crlf
 
 		lea edx, msg3
 		call writestring
 		mov eax, ecx
-		call writedec
+		call writeInt
 	
 	Thoat:
 		call crlf

@@ -3,12 +3,12 @@ include Irvine32.inc
 ; the hien lai bo cau truc Switch cua ngon ngu C
 
 .data
-	msg BYTE "Enter your option: ", 0
+	msg BYTE "Enter your option (1-3): ", 0
 	choice DWORD ?            
 	msg1 BYTE "This is option 1 !", 0
 	msg2 BYTE "This is option 2 !", 0
 	msg3 BYTE "This is option 3 !", 0
-	default BYTE "This is default option !", 0
+	default BYTE "This is an invalid option !", 0
 
 .code
 	main proc

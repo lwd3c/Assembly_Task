@@ -1,5 +1,6 @@
 include Irvine32.inc
 
+; sap xep mang tang dan/ giam dan
 .data
 	tb BYTE "Nhap do dai mang ban dau: " , 0
 	tb2 BYTE "Nhap phan tu thu ", 0

@@ -1,7 +1,7 @@
 include Irvine32.inc
 
 ; kiem tra so Armstrong: so ma tong cac luy thua cua cac chu so cua no bang chinh no
-; 0, 1, 153, 370, 371, 407, 1634, 8208, 9474
+; 0, 1, 153, 370, 371, 407, 1634, 8208, 9474,...
 
 .data
 	msg BYTE "Nhap so bat ki: ", 0

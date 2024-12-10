@@ -96,6 +96,7 @@ include Irvine32.inc
 	ChinhHop proc
 		mov eax, edi		; n!	
 		mov ebx, esi		; i!
+		cdq
 		div ebx			; eax = n! / (n - k)!
 		ret
 	ChinhHop endp

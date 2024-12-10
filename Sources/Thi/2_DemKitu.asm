@@ -22,13 +22,6 @@ include Irvine32.inc
 		mov ecx, 100
 		call readstring
 		mov leng, eax
-	
-	; hien thi string ban dau
-		lea edx, msg4
-		call writestring
-		lea edx, string
-		call writestring
-		call crlf
 
 	; nhap ki tu can dem
 		lea edx, msg2

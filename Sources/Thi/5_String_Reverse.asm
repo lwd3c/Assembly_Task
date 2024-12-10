@@ -6,7 +6,7 @@ include Irvine32.inc
 	msg BYTE "Nhap String ban dau: ", 0
 	msg2 BYTE "String dao nguoc: ", 0
 	string BYTE 200 DUP(?)
-	string2 BYTE SIZEOF string DUP(?) 
+	string2 BYTE 200 DUP(?) 
 	leng DWORD ?
 
 .code

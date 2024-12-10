@@ -3,22 +3,24 @@ include Irvine32.inc
 ; the hien lai cau truc While cua ngon ngu C
 
 .data
-	count DWORD 100
-	msg DB "Tong 100 so dau tien la: ", 0
+	count DWORD ?
+	msg  DB "Nhap n: ", 0
+	msg1 DB "Tong n so dau tien la: ", 0
 
 .code
 	main proc
+		lea edx, msg
+		call writeString
+		call readDec
+		mov count, eax
+
 		mov ecx, count
 		mov eax, 0
 	L1:
-		cmp ecx, 0
-		jz Print
 		add eax, ecx
-		dec ecx
-		jmp L1
+		loop L1
 	
-	Print:
-		lea edx, msg
+		lea edx, msg1
 		call writeString
 		call writeDec
 		

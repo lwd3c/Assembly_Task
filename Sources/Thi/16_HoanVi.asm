@@ -12,7 +12,9 @@ include Irvine32.inc
 	; nhap k
 		lea edx, msg
 		call writestring
-		call readdec
+		call readint
+		cmp eax, 0
+		jl Error
 
 	; tinh giai thua
 		call GiaiThua

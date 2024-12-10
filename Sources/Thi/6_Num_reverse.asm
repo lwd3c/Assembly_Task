@@ -24,6 +24,7 @@ include Irvine32.inc
 	; in so dao nguoc
 		lea edx, msg2
 		call writestring
+
 		mov ecx, i
 		lea esi, re_num
 	Print:
@@ -42,18 +43,20 @@ include Irvine32.inc
 	main endp
 
 	Num_Reverse proc
+		push esi
 	L1:
-		cmp eax, 0
+		cmp eax, 0			; kiem tra phan nguyen voi 0
 		jz Return
 		mov ebx, 10
 		cdq
-		div ebx
-		mov [esi], edx
+		div ebx				; chia 10 de lay phan du
+		mov [esi], edx			; luu vao mang dao nguoc
 		add esi, TYPE re_num
 		inc i
 		jmp L1
 	
 	Return:
+		pop esi
 		ret
 	Num_Reverse endp
 

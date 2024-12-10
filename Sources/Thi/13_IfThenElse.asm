@@ -14,6 +14,7 @@ include Irvine32.inc
 
 .code
 	main proc
+	; nhap a, b
 	    lea edx, tb1
 	    call writestring
 	    call readdec
@@ -23,7 +24,8 @@ include Irvine32.inc
 	    call writestring
 	    call readdec
 	    mov val2, eax
-
+	
+	; so sanh a va b 
 	    mov eax, val1               
 	    mov ebx, val2                  
 	    cmp eax, ebx             

@@ -16,7 +16,7 @@ include Irvine32.inc
 		lea edx, msg
 		call writestring
 		lea edx, string
-		mov ecx, 100
+		mov ecx, 200
 		call readstring
 		mov leng, eax
 	
